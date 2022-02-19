@@ -7,7 +7,7 @@ services:
       - "8200:8200"
     restart: always
     configs:
-      - vault.json
+      - /vault/config/vault.json
     volumes:
       - ./volumes/logs:/vault/logs
       - ./volumes/file:/vault/file
