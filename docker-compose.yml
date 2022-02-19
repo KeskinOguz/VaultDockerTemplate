@@ -6,6 +6,8 @@ services:
     ports:
       - "8200:8200"
     restart: always
+    configs:
+      - vault.json
     volumes:
       - ./volumes/logs:/vault/logs
       - ./volumes/file:/vault/file
@@ -13,3 +15,8 @@ services:
     cap_add:
       - IPC_LOCK
     entrypoint: vault server -config=/vault/config/vault.json
+
+
+configs:
+    vault.json:
+       external: true
